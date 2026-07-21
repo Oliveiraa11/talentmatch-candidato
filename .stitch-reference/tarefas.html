@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TalentMatch - Tarefas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#00164e",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "primary-fixed": "#dbe1ff",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-tertiary-container": "#eff1f3",
+                    "surface-container-low": "#f0f3ff",
+                    "secondary": "#4059aa",
+                    "outline": "#737686",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-primary-fixed": "#00174b",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#111c2d",
+                    "surface-tint": "#0053db",
+                    "surface-variant": "#d8e3fb",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434655",
+                    "tertiary": "#525657",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "secondary-fixed-dim": "#b6c4ff",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#cfdaf2",
+                    "primary-container": "#2563eb",
+                    "primary": "#004ac6",
+                    "surface-bright": "#f9f9ff",
+                    "surface-container": "#e7eeff",
+                    "secondary-fixed": "#dce1ff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface-container-high": "#dee8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#8fa7fe",
+                    "on-secondary-container": "#1d3989",
+                    "outline-variant": "#c3c6d7",
+                    "inverse-on-surface": "#ecf1ff",
+                    "surface": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#6b6e70",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#264191",
+                    "inverse-surface": "#263143",
+                    "on-background": "#111c2d",
+                    "inverse-primary": "#b4c5ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "background": "#f9f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "header-height": "72px",
+                    "base": "4px",
+                    "sidebar-width": "280px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9ff; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .task-card {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+        }
+        .task-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .active-tab-indicator {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #004ac6;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-sidebar-width bg-surface-container-lowest border-r border-outline-variant flex flex-col py-container-padding z-50 hidden md:flex">
+<div class="px-6 mb-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">TalentMatch</span>
+</div>
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold">
+                LA
+            </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Lucas Almeida</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Candidate</p>
+</div>
+</div>
+<nav class="flex-1">
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md text-body-md">Home</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md text-body-md">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-body-md text-body-md">My Applications</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-primary font-bold border-l-4 border-primary bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="font-body-md text-body-md">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<a class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 md:w-[calc(100%-theme(spacing.sidebar-width))] w-full h-header-height bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-container-padding z-40">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Tarefas</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-surface-container rounded-full p-2 transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center ml-2 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a young male professional named Lucas Almeida, wearing a clean white shirt against a neutral gray background. The lighting is soft and corporate, emphasizing a friendly yet reliable demeanor in a high-key modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCks7yBvFO25n3kXDdklW8b6dmT5lr6tEvyyYIcvDoT5UGd37eI6m3DYqQiZgqUwtioZ5HvQluHSv-AjOsg0COfCcio5Lvta30sj0VyQ-k-nm2FmsLum1knbWKPZ_bxsspQho0uJF5YiCxDQNndLS4j1LPdYD52COBaUtCZUdsYPcRbxArjrOaGeM2mdVSA3Y5Ld2V713JLjS8NvRSgqCcwxJAU6pY7Ck2RocKVdHjrkeBqwdMlqOxE"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="md:ml-sidebar-width pt-header-height min-h-screen p-container-padding pb-24 md:pb-container-padding">
+<div class="max-w-5xl mx-auto">
+<!-- Bento-ish Header Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-primary-container text-on-primary-container p-6 rounded-xl flex flex-col justify-between h-32">
+<span class="font-label-md text-label-md opacity-80 uppercase tracking-wider">Pendentes</span>
+<div class="flex items-end justify-between">
+<span class="font-headline-lg text-headline-lg">03</span>
+<span class="material-symbols-outlined text-4xl">pending_actions</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl flex flex-col justify-between h-32">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Concluídas</span>
+<div class="flex items-end justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface">12</span>
+<span class="material-symbols-outlined text-4xl text-outline">check_circle</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden">
+<div class="relative z-10">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Próximo Prazo</span>
+<div class="mt-2">
+<span class="font-headline-sm text-headline-sm text-on-surface block">30/07</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Teste Técnico</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-8xl">calendar_month</span>
+</div>
+</div>
+</div>
+<!-- Tabs Navigation -->
+<div class="flex items-center gap-8 mb-6 border-b border-outline-variant relative">
+<button class="pb-3 px-1 font-label-md text-label-md text-primary relative active" id="tab-pending" onclick="switchTab('pending')">
+                    Pendentes
+                    <div class="active-tab-indicator" id="indicator-pending"></div>
+</button>
+<button class="pb-3 px-1 font-label-md text-label-md text-on-surface-variant relative" id="tab-completed" onclick="switchTab('completed')">
+                    Concluídas
+                    <div class="active-tab-indicator hidden" id="indicator-completed"></div>
+</button>
+</div>
+<!-- Task List Container -->
+<div class="space-y-4" id="task-list">
+<!-- Task Item 1 -->
+<div class="task-card bg-surface-container-lowest border border-outline-variant rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">code</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Teste técnico de HTML e CSS</h3>
+<div class="flex flex-wrap gap-x-4 gap-y-1">
+<span class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                                    Front-end Jr
+                                </span>
+<span class="flex items-center gap-1.5 text-error font-body-sm text-body-sm font-medium">
+<span class="material-symbols-outlined text-[18px]">event</span>
+                                    Prazo: 30/07
+                                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-0 border-outline-variant">
+<div class="bg-surface-container px-3 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+                            Atividade Técnica
+                        </div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all shadow-sm">
+                            Iniciar teste
+                        </button>
+</div>
+</div>
+<!-- Task Item 2 -->
+<div class="task-card bg-surface-container-lowest border border-outline-variant rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">quiz</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Questionário comportamental</h3>
+<div class="flex flex-wrap gap-x-4 gap-y-1">
+<span class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                                    Várias vagas
+                                </span>
+<span class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">event</span>
+                                    Prazo: 02/08
+                                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-0 border-outline-variant">
+<div class="bg-surface-container px-3 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+                            Soft Skills
+                        </div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all shadow-sm">
+                            Responder questionário
+                        </button>
+</div>
+</div>
+<!-- Task Item 3 -->
+<div class="task-card bg-surface-container-lowest border border-outline-variant rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Confirmar presença na entrevista</h3>
+<div class="flex flex-wrap gap-x-4 gap-y-1">
+<span class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                                    Desenvolvedor Full Stack
+                                </span>
+<span class="flex items-center gap-1.5 text-primary font-body-sm text-body-sm font-medium">
+<span class="material-symbols-outlined text-[18px]">event</span>
+                                    Data: 28/07, 14:00
+                                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-0 border-outline-variant">
+<div class="bg-surface-container px-3 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+                            Logística
+                        </div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all shadow-sm">
+                            Confirmar presença
+                        </button>
+</div>
+</div>
+<!-- Empty State Hidden by default -->
+<div class="hidden py-20 text-center" id="empty-state">
+<span class="material-symbols-outlined text-6xl text-outline-variant mb-4">task_alt</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant">Tudo em dia!</h3>
+<p class="font-body-md text-body-md text-outline">Você não possui tarefas pendentes no momento.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg flex justify-around items-center h-16 px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold bg-primary-container/20 rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">checklist</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Profile</span>
+</a>
+</nav>
+<script>
+        function switchTab(type) {
+            const pendingBtn = document.getElementById('tab-pending');
+            const completedBtn = document.getElementById('tab-completed');
+            const pendingIndicator = document.getElementById('indicator-pending');
+            const completedIndicator = document.getElementById('indicator-completed');
+            const taskList = document.getElementById('task-list');
+
+            if (type === 'pending') {
+                pendingBtn.classList.add('text-primary');
+                pendingBtn.classList.remove('text-on-surface-variant');
+                completedBtn.classList.add('text-on-surface-variant');
+                completedBtn.classList.remove('text-primary');
+                pendingIndicator.classList.remove('hidden');
+                completedIndicator.classList.add('hidden');
+                
+                // Show actual pending tasks
+                renderPendingTasks();
+            } else {
+                completedBtn.classList.add('text-primary');
+                completedBtn.classList.remove('text-on-surface-variant');
+                pendingBtn.classList.add('text-on-surface-variant');
+                pendingBtn.classList.remove('text-primary');
+                completedIndicator.classList.remove('hidden');
+                pendingIndicator.classList.add('hidden');
+                
+                // Show completed tasks (mock empty state or static list)
+                renderCompletedTasks();
+            }
+        }
+
+        function renderPendingTasks() {
+            const container = document.getElementById('task-list');
+            container.innerHTML = `
+                <div class="task-card bg-surface-container-lowest border border-outline-variant rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary">code</span>
+                        </div>
+                        <div>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Teste técnico de HTML e CSS</h3>
+                            <div class="flex flex-wrap gap-x-4 gap-y-1">
+                                <span class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+                                    <span class="material-symbols-outlined text-[18px]">work</span>
+                                    Front-end Jr
+                                </span>
+                                <span class="flex items-center gap-1.5 text-error font-body-sm text-body-sm font-medium">
+                                    <span class="material-symbols-outlined text-[18px]">event</span>
+                                    Prazo: 30/07
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-0 border-outline-variant">
+                        <div class="bg-surface-container px-3 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+                            Atividade Técnica
+                        </div>
+                        <button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all shadow-sm">
+                            Iniciar teste
+                        </button>
+                    </div>
+                </div>
+                <div class="task-card bg-surface-container-lowest border border-outline-variant rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary">quiz</span>
+                        </div>
+                        <div>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Questionário comportamental</h3>
+                            <div class="flex flex-wrap gap-x-4 gap-y-1">
+                                <span class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+                                    <span class="material-symbols-outlined text-[18px]">work</span>
+                                    Várias vagas
+                                </span>
+                                <span class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+                                    <span class="material-symbols-outlined text-[18px]">event</span>
+                                    Prazo: 02/08
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-0 border-outline-variant">
+                        <div class="bg-surface-container px-3 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+                            Soft Skills
+                        </div>
+                        <button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all shadow-sm">
+                            Responder questionário
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCompletedTasks() {
+            const container = document.getElementById('task-list');
+            container.innerHTML = `
+                <div class="task-card bg-surface-container-low opacity-80 border border-outline-variant rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 grayscale-[0.2]">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-on-surface-variant">check_circle</span>
+                        </div>
+                        <div>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface-variant mb-1 line-through">Envio de Currículo Atualizado</h3>
+                            <div class="flex flex-wrap gap-x-4 gap-y-1">
+                                <span class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+                                    Concluído em 15/07
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-0 border-outline-variant">
+                        <div class="bg-surface-container-highest px-3 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+                            Cadastro
+                        </div>
+                        <button class="border border-outline text-on-surface-variant px-6 py-2.5 rounded-lg font-label-md text-label-md opacity-50 cursor-not-allowed">
+                            Concluído
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body></html>

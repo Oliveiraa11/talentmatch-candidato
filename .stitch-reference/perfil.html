@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perfil do Candidato | TalentMatch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#00164e",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "primary-fixed": "#dbe1ff",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-tertiary-container": "#eff1f3",
+                    "surface-container-low": "#f0f3ff",
+                    "secondary": "#4059aa",
+                    "outline": "#737686",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-primary-fixed": "#00174b",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#111c2d",
+                    "surface-tint": "#0053db",
+                    "surface-variant": "#d8e3fb",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434655",
+                    "tertiary": "#525657",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "secondary-fixed-dim": "#b6c4ff",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#cfdaf2",
+                    "primary-container": "#2563eb",
+                    "primary": "#004ac6",
+                    "surface-bright": "#f9f9ff",
+                    "surface-container": "#e7eeff",
+                    "secondary-fixed": "#dce1ff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface-container-high": "#dee8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#8fa7fe",
+                    "on-secondary-container": "#1d3989",
+                    "outline-variant": "#c3c6d7",
+                    "inverse-on-surface": "#ecf1ff",
+                    "surface": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#6b6e70",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#264191",
+                    "inverse-surface": "#263143",
+                    "on-background": "#111c2d",
+                    "inverse-primary": "#b4c5ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "background": "#f9f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "header-height": "72px",
+                    "base": "4px",
+                    "sidebar-width": "280px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Desktop SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-sidebar-width bg-surface-container-lowest border-r border-outline-variant shadow-sm z-50 hidden md:flex flex-col py-container-padding">
+<div class="px-6 mb-10">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">TalentMatch</h1>
+</div>
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a young man named Lucas Almeida, with a friendly and confident expression, short dark hair, wearing a clean business-casual shirt. The photography is sharp with high-key studio lighting and a soft, neutral-colored blurred background, maintaining a corporate modern aesthetic with blue and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGUh_cSVkq_8AhFWNzfZCjNfeuTuf1aVu3Jm8CdfsSTX0hLqQQqBVw4ze5otp8noo9AHLz6ppMATC4zR9TjbCGMrC6VkzVgre4duacjuflVrBEQc6EeFPdvdVS3CY0rls20IHCWUMMfVUsJocI3nfT014ay0JbE3UqIN-pzGwtrzvpPDonQaWO_RJOrgPMC3X4b5qeYuTnrMZ7ugoamIkpJwdk4nnf_vVQjTYxdhFYO6uOG2F4GmUm"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Lucas Almeida</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Candidate</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md text-body-md">Home</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md text-body-md">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-body-md text-body-md">My Applications</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="font-body-md text-body-md">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-primary font-bold border-l-4 border-primary bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-error hover:bg-error-container/10 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-theme(spacing.sidebar-width))] h-header-height bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-container-padding z-40">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined md:hidden text-on-surface-variant cursor-pointer">menu</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Perfil</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container rounded-full p-2 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden md:hidden">
+<img class="w-full h-full object-cover" data-alt="Close up profile picture of Lucas Almeida for mobile navigation view, professional and approachable, light blue office background with modern corporate lighting, high quality digital photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEuNTGaGNJb2YStffGVkr8Kw9RmQAZa9H5yxgHfJJdOPQxuE5IxAvEcI9lyL3IjltAdErDu_oADrsJUB9nkLwORbO_kaQpDZVXh7sZpLqqi67i2EKR3OVDrjCv4s7VCfc4r1sDhU-nmLH8rRTTbqs7Vn80ZLOCTZQzDHsjRreXQ28K9akHod4D6hU9izVOvCQaaDNlTOhhcDgjINjOgc-h9CeDygLs6pIkqmI1rlAVGDpSx_D7bhqm"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[calc(theme(spacing.header-height)+24px)] pb-24 md:pb-8 pl-4 pr-4 md:pl-[calc(theme(spacing.sidebar-width)+24px)] md:pr-container-padding min-h-screen">
+<!-- Bento Grid Layout -->
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Left Column: Primary Info Card -->
+<div class="md:col-span-8 space-y-6">
+<!-- Header Info -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm">
+<div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+<div class="relative group">
+<div class="w-32 h-32 rounded-2xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" data-alt="A portrait of Lucas Almeida, professional and friendly, dressed in business casual attire. He is in a brightly lit, modern co-working space with clean architectural lines and plants in the background. The color scheme is dominated by professional blues and warm whites, consistent with a career-oriented platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdQf_tPb78wV1lC9qSdq3_mnyUVVKkkm01iR0KFABnTylJMLVSYOa_kx2_zxs5CrS3mKFaDEeoYv87PMonDc1Y03KbO1SR-iIcQPs5jNJsbFx4gZgkOrhdTS8wKKm22R1NCR6xAqMD1xbnFlJ55n1z_f4kCTl_e3e4IFg0J0QXh4fWAfgDNiQu0w2LmgNsfIZKODCiSJo8jPJaZ0qhdJ1Jjc_3IBdXvyp96-tpGuEckQ1qO1FMXmw9"/>
+</div>
+<button class="absolute -bottom-2 -right-2 bg-primary text-white p-2 rounded-lg shadow-lg hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Lucas Almeida</h3>
+<p class="font-body-lg text-body-lg text-primary mb-2">Engenharia da Computação</p>
+<div class="flex flex-wrap gap-4 mt-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span class="font-body-sm text-body-sm">lucas.almeida@email.com</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">call</span>
+<span class="font-body-sm text-body-sm">(11) 98765-4321</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<span class="font-body-sm text-body-sm">São Paulo, SP</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Summary -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm">
+<h4 class="font-headline-sm text-headline-sm mb-4 text-on-surface">Resumo Profissional</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Estudante de Engenharia da Computação focado em desenvolvimento Front-end. Apaixonado por criar interfaces intuitivas, performáticas e acessíveis. Possuo experiência sólida em ecossistemas JavaScript modernos e busco constantemente aperfeiçoar minhas habilidades em arquitetura de software e experiência do usuário.
+                    </p>
+</section>
+<!-- Skills & Tags (Asymmetric Layout) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm">
+<h4 class="font-headline-sm text-headline-sm mb-6 text-on-surface">Habilidades Técnicas</h4>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-primary-fixed text-on-primary-fixed-variant rounded-full font-label-md text-label-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span> HTML
+                        </span>
+<span class="px-4 py-2 bg-primary-fixed text-on-primary-fixed-variant rounded-full font-label-md text-label-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span> CSS
+                        </span>
+<span class="px-4 py-2 bg-primary-fixed text-on-primary-fixed-variant rounded-full font-label-md text-label-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span> JavaScript
+                        </span>
+<span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Python
+                        </span>
+<span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Git
+                        </span>
+<span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span> GitHub
+                        </span>
+</div>
+</section>
+</div>
+<!-- Right Column: Details & Actions -->
+<div class="md:col-span-4 space-y-6">
+<!-- Education Status Card -->
+<section class="bg-primary text-white rounded-xl p-6 shadow-md relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline-sm text-headline-sm mb-4">Formação Acadêmica</h4>
+<div class="space-y-4">
+<div>
+<p class="text-primary-fixed font-label-sm text-label-sm uppercase">Instituição</p>
+<p class="font-body-md text-body-md font-semibold">Universidade de Tecnologia</p>
+</div>
+<div class="flex justify-between">
+<div>
+<p class="text-primary-fixed font-label-sm text-label-sm uppercase">Semestre</p>
+<p class="font-body-md text-body-md font-semibold">7º Semestre</p>
+</div>
+<div class="text-right">
+<p class="text-primary-fixed font-label-sm text-label-sm uppercase">Status</p>
+<p class="font-body-md text-body-md font-semibold">Em curso</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -bottom-10 -right-10 w-32 h-32 bg-primary-fixed/20 rounded-full blur-3xl"></div>
+</section>
+<!-- Links & Socials -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase mb-4 tracking-wider">Conexões</h4>
+<div class="space-y-3">
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-all border border-transparent hover:border-outline-variant" href="https://linkedin.com" target="_blank">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">link</span>
+<span class="font-body-md text-body-md font-medium">LinkedIn</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-all border border-transparent hover:border-outline-variant" href="https://github.com" target="_blank">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">code</span>
+<span class="font-body-md text-body-md font-medium">GitHub</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">open_in_new</span>
+</a>
+</div>
+</section>
+<!-- Resume Upload Card -->
+<section class="bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-6 text-center group hover:border-primary transition-colors cursor-pointer">
+<div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">upload_file</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Upload de Currículo</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">PDF, DOCX até 5MB</p>
+<div class="bg-surface-container p-3 rounded-lg flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">description</span>
+<span class="text-xs font-medium truncate w-32">curriculo_lucas_2024.pdf</span>
+</div>
+<span class="material-symbols-outlined text-xs text-on-surface-variant hover:text-error">close</span>
+</div>
+<button class="w-full py-2 bg-surface-container-high hover:bg-surface-container-highest rounded-lg font-label-md text-label-md text-on-surface-variant transition-colors">
+                        Substituir Arquivo
+                    </button>
+</section>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 bg-primary text-white rounded-xl font-headline-sm text-headline-sm hover:bg-primary-container shadow-md transition-all active:scale-[0.98]">
+                        Salvar alterações
+                    </button>
+<button class="w-full py-4 bg-white border border-outline-variant text-on-surface rounded-xl font-body-md text-body-md hover:bg-surface-container-low transition-all">
+                        Editar perfil
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg flex justify-around items-center h-16 px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-[10px]">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-[10px]">Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="font-label-sm text-[10px]">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold bg-primary-container/20 rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-[0.98]');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-[0.98]');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-[0.98]');
+            });
+        });
+
+        // Simulating form edit toggle
+        let isEditing = false;
+        const editBtn = document.querySelector('button:contains("Editar perfil")');
+        // Simple manual check since :contains is not standard JS
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.textContent.trim() === 'Editar perfil') {
+                btn.addEventListener('click', () => {
+                    isEditing = !isEditing;
+                    btn.textContent = isEditing ? 'Cancelar edição' : 'Editar perfil';
+                    btn.classList.toggle('bg-error/10');
+                    btn.classList.toggle('text-error');
+                });
+            }
+        });
+    </script>
+</body></html>

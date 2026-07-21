@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TalentMatch - Vagas Disponíveis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#00164e",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "primary-fixed": "#dbe1ff",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-tertiary-container": "#eff1f3",
+                    "surface-container-low": "#f0f3ff",
+                    "secondary": "#4059aa",
+                    "outline": "#737686",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-primary-fixed": "#00174b",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#111c2d",
+                    "surface-tint": "#0053db",
+                    "surface-variant": "#d8e3fb",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434655",
+                    "tertiary": "#525657",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "secondary-fixed-dim": "#b6c4ff",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#cfdaf2",
+                    "primary-container": "#2563eb",
+                    "primary": "#004ac6",
+                    "surface-bright": "#f9f9ff",
+                    "surface-container": "#e7eeff",
+                    "secondary-fixed": "#dce1ff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface-container-high": "#dee8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#8fa7fe",
+                    "on-secondary-container": "#1d3989",
+                    "outline-variant": "#c3c6d7",
+                    "inverse-on-surface": "#ecf1ff",
+                    "surface": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#6b6e70",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#264191",
+                    "inverse-surface": "#263143",
+                    "on-background": "#111c2d",
+                    "inverse-primary": "#b4c5ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "background": "#f9f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "header-height": "72px",
+                    "base": "4px",
+                    "sidebar-width": "280px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Desktop Side Navigation -->
+<aside class="fixed left-0 top-0 h-full w-sidebar-width bg-surface-container-lowest dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline shadow-sm flex flex-col py-container-padding z-50 hidden md:flex" id="sidebar">
+<div class="px-6 mb-8">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">TalentMatch</h1>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-body-md text-body-md">Home</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-primary dark:text-inverse-primary font-bold border-l-4 border-primary bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-body-md text-body-md">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-body-md text-body-md">My Applications</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+<span class="font-body-md text-body-md">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="flex items-center gap-3 mb-6 p-3 bg-surface-container rounded-xl">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close up professional headshot of Lucas Almeida, a confident Brazilian professional in his late 20s, smiling naturally. The background is a blurred modern office environment with soft blue and white tones, matching the light mode corporate aesthetic of the app. The lighting is bright and airy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8PzAYah4yoyG1jh4HYGxJ2uszx9GA_xyjWECe2GVRQldJB4ycYeqgj3pqcg0LvxDW4C1XO8UCPzt2Z-Drp5o8w7f04htHMcwqoHEyXAIqBcmvQOKvUDAPJO_1zwd9W7LQ1sggZKvfjrX9KbuMalcYrU30PEB6VKWGzja4D_7YJr3tc6Hew0WBE3BRX445uoIWNSdkYIy_sln14EYDT3Zfh1RSd_Y9q7wDVg0mqy3YQMRAOoESDBgR"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Lucas Almeida</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Candidate</p>
+</div>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-theme(spacing.sidebar-width))] h-header-height bg-surface-container-lowest dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline flex justify-between items-center px-container-padding z-40">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 hover:bg-surface-container rounded-full">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h2 class="font-headline-sm text-headline-sm text-primary">Vagas Disponíveis</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container dark:hover:bg-surface-container-high rounded-full p-2 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="hidden sm:block">
+<img class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Professional profile icon of a person for a web application, minimalist and clean, circular frame, soft lighting, matching the light mode design system with subtle blue undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_sgXxj-72Off32uWWP-wGfBNRycmAhLmKIw4_jWrVgKvSoYSFgYqw8Lh1CEJnOEAP_dTx_gFu-eA_8YNp_QJKcKpg9Z--MbVKLFlj31_YfpHBKBbXlDLwtlqWoP_9gyAmG6wm-CoUBsR-EBTWAlgg6ZlWkTCfsJmSaeH4seA7oFTSK3w9e3YMW3lI_zXmqnJAT_-LbqrFzS3Ni_HIAACuPdNucoBcGQ52ggTh0Q0b6Qk7GdESW31O"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="pt-[calc(theme(spacing.header-height)+24px)] pb-24 md:pb-8 md:ml-sidebar-width min-h-screen px-container-padding">
+<!-- Filters & Search Section -->
+<section class="mb-8 space-y-4">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+<!-- Search Bar -->
+<div class="lg:col-span-6 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none font-body-md text-body-md" placeholder="Buscar por cargo, tecnologia ou empresa..." type="text"/>
+</div>
+<!-- Filters -->
+<div class="lg:col-span-3">
+<select class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none font-body-md text-body-md appearance-none cursor-pointer">
+<option value="">Todas as áreas</option>
+<option value="tech">Tecnologia</option>
+<option value="data">Dados</option>
+<option value="design">Design</option>
+</select>
+</div>
+<div class="lg:col-span-3">
+<select class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none font-body-md text-body-md appearance-none cursor-pointer">
+<option value="">Modalidade</option>
+<option value="remoto">Remoto</option>
+<option value="hibrido">Híbrido</option>
+<option value="presencial">Presencial</option>
+</select>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary-container text-on-primary-container rounded-full font-label-sm text-label-sm flex items-center gap-1">
+                    Remoto <button class="material-symbols-outlined text-[14px]" data-icon="close">close</button>
+</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full font-label-sm text-label-sm">
+                    Tecnologia
+                </span>
+<button class="text-primary font-label-sm text-label-sm ml-2 hover:underline">Limpar filtros</button>
+</div>
+</section>
+<!-- Jobs Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Job Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 hover:shadow-lg transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-xl overflow-hidden">
+<img class="w-10 h-10 object-contain" data-alt="Clean and modern minimalist logo for TechNova, a technology startup. The logo uses geometric shapes in shades of professional blue and grey, centered on a crisp white background. The aesthetic is high-tech, sleek, and corporate, fitting perfectly within a premium recruitment platform interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ0qRR-pl9ujuwy8oyUmZaofPio51yg077HEfbl9owur9wX6VvRZ9jHhPOMxYkufc2K8KBIULgslrwGVvF05CXq9T72B9pzKnCuaoPAEgs7DXDam7_mQPyNS_DGtDdFV_3uhjtvtGeBa38pVUx5JlMutJsSUXEKd_PG_nB52xyO5HWcviE3Xxlwn5nLHZrkU0HAnmD3M405IZGJtMSyAK5WIlTZ9ar6fuFShjQneSPklEs4wAB-0Cu"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Desenvolvedor Front-end Júnior</h3>
+<p class="font-body-md text-body-md text-secondary font-medium">TechNova</p>
+</div>
+</div>
+<button class="text-outline hover:text-primary">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="font-label-md text-label-md">Remoto</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="work">work</span>
+<span class="font-label-md text-label-md">Efetivo</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">2 dias atrás</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+<button class="px-6 py-2.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors shadow-sm">
+                        Ver detalhes
+                    </button>
+</div>
+</article>
+<!-- Job Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 hover:shadow-lg transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-xl overflow-hidden">
+<img class="w-10 h-10 object-contain" data-alt="Minimalist abstract logo for SoftSolutions, featuring interlocking soft curves and professional typography. The color scheme is a mix of deep navy and bright accent blue. The style is modern, trustworthy, and clean, presented in a high-resolution professional brand mark format." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfdUvR-DxPO6S4XMgsR4g5XEBYZB-76xZ20wd91P1jeJEmVVwUhZVAqKAjIjMS8HDIf0OnnQJG9JOhI5zJwG4QtF-1Rfmq-_7KbQICL6p_KgT7pH0GXbRIgR7OSpSo2Kv3NyGSd6g6T-ftGb7-83rURZTPKkACA1XBm9g6sIjqJsat8CZ-FzEtwcuBMl0ShOE3ctP9YuZ3HJJEp5jg_OmaaLmwSrWvOUBbUVhpixzLqT4n21-akj_4"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Estagiário de Desenvolvimento</h3>
+<p class="font-body-md text-body-md text-secondary font-medium">SoftSolutions</p>
+</div>
+</div>
+<button class="text-outline hover:text-primary">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="font-label-md text-label-md">São Paulo (Híbrido)</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Estágio</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">Ontem</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+<span class="text-on-surface-variant font-label-sm text-label-sm bg-surface-container-high px-2 py-1 rounded">Vaga urgente</span>
+<button class="px-6 py-2.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors shadow-sm">
+                        Ver detalhes
+                    </button>
+</div>
+</article>
+<!-- Job Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 hover:shadow-lg transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-xl overflow-hidden">
+<img class="w-10 h-10 object-contain" data-alt="Modern data-centric logo for DataInsight, incorporating stylized bar charts and a lens icon in a minimalist aesthetic. Primary colors are charcoal and electric blue, conveying precision and authority in data analytics. The logo is clean, scalable, and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyTzoxhMNEeSGoOXO-hLUqBfMk8zV0abo9a8fN6EFUNE-FTLclJqxDCNu2UhUG7bmFUe7M25g6SNqp6j99xFcGrAyYgaTpqq_Fc5UTQaCNlJpa6iqlILjb0ArF06-cTTssmG9P5MUzu78HItgmRsgHX-81Uqf7F5Dcldks_UDEgnBNSAG5ZKSyZ5kzLVbLuxBQfBGBpKenXgerH1Ee3prWVgGq0FgzZriymwEGUruUbKw8af8Wz1kV"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Analista de Dados Júnior</h3>
+<p class="font-body-md text-body-md text-secondary font-medium">DataInsight</p>
+</div>
+</div>
+<button class="text-outline hover:text-primary">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="font-label-md text-label-md">Remoto</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="work">work</span>
+<span class="font-label-md text-label-md">Efetivo</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">5 dias atrás</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+<span class="text-on-surface-variant font-label-sm text-label-sm italic">54 candidatos aplicaram</span>
+<button class="px-6 py-2.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors shadow-sm">
+                        Ver detalhes
+                    </button>
+</div>
+</article>
+<!-- Job Card 4 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 hover:shadow-lg transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-xl overflow-hidden">
+<img class="w-10 h-10 object-contain" data-alt="Corporate logo for GlobalIT, a large scale information technology corporation. Features a stylized globe and network nodes in a professional blue and silver color palette. The design is solid, stable, and established, representing a major industry player." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc4EMVMLlUae7a4dzqPSW01Cg4knH-3GiovINN-HPJn0bkePouhAzNre-7BBc2Z97VhO9PsINGu4UOwZ-XPPdrIz45aa7qYPDyF4uN1HtkWwiV6KchqmN4nwm8BRjNbN-n3HtYhu1RIznQY_fpmWqH7zVAPzdc4bpCLxkG0zKZQZxoL4hxussJdqxCsPCGFPGBNsguBgmA-C-L1blHm3oZP2vicyeuTHTGdonAmRAFrPw9vfkat8H_"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Assistente de Tecnologia</h3>
+<p class="font-body-md text-body-md text-secondary font-medium">GlobalIT</p>
+</div>
+</div>
+<button class="text-outline hover:text-primary">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="font-label-md text-label-md">Belo Horizonte</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="badge">badge</span>
+<span class="font-label-md text-label-md">CLT</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">1 semana atrás</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Empresa veridificada</span>
+<button class="px-6 py-2.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors shadow-sm">
+                        Ver detalhes
+                    </button>
+</div>
+</article>
+</div>
+<!-- Pagination Placeholder -->
+<div class="mt-12 flex justify-center items-center gap-4">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<span class="font-label-md text-label-md">Página 1 de 12</span>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline shadow-lg flex justify-around items-center h-16 px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-bold bg-primary-container/20 rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Search highlight mock
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('shadow-md');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('shadow-md');
+        });
+    </script>
+</body></html>
